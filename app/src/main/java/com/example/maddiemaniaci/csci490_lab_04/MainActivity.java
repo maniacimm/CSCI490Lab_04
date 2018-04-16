@@ -3,6 +3,7 @@ package com.example.maddiemaniaci.csci490_lab_04;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,6 +18,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView view = findViewById(R.id.text);
+        URLTask task = new URLTask(view);
+        task.execute("https://jsonplaceholder.typicode.com/users");
     }
 
     public String createURL(String string) throws IOException {
